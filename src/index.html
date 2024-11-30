@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOCKS Proxy Manager</title>
+  <style>
+    body {
+      background: #eff4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #545d64;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-direction: column;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    @-webkit-keyframes pulse {
+      0% {
+        -webkit-box-shadow: 0px 0px 30px 5px #18f74baa;
+      }
+
+      70% {
+        -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+      }
+
+      100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        -moz-box-shadow: 0px 0px 25px 20px #18f74baa;
+        box-shadow: 0px 0px 25px 20px #18f74baa;
+      }
+
+      50% {
+        -moz-box-shadow: 0px 0px 10px 10px #18f74baa;
+        box-shadow: 0px 0px 10px 10px #18f74baa;
+      }
+
+      100% {
+        -moz-box-shadow: 0px 0px 25px 20px #18f74baa;
+        box-shadow: 0px 0px 25px 20px #18f74baa;
+      }
+    }
+
+    button.start {
+      background: #eff4f4;
+      background: -webkit-linear-gradient(to right, #f8f9fa, #eff4f4);
+      background: linear-gradient(to right, #f8f9fa, #eff4f4);
+      border: 2px solid #343536;
+      border-color: #ffffff;
+      box-shadow: 0px 0px 30px 5px #18f74b;
+      color: #18f74b;
+      font-size: 56px;
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+      cursor: pointer;
+      transition: all 0.5s;
+      animation: pulse 5s infinite;
+    }
+
+    button.start:hover {
+      box-shadow: 0px 0px 50px 30px #18f74b;
+      transition: all 0.5s;
+      animation: none;
+    }
+
+    button.stop {
+      background: #eff4f4;
+      background: -webkit-linear-gradient(to right, #f8f9fa, #eff4f4);
+      background: linear-gradient(to right, #f8f9fa, #eff4f4);
+      border: 2px solid #343536;
+      border-color: #18f74b;
+      box-shadow: 0px 0px 30px 5px #18f74b;
+      color: #18f74b;
+      font-size: 56px;
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+
+    button.stop:hover {
+      box-shadow: 0px 0px 50px 30px #e25c5c;
+      transition: all 0.5s;
+    }
+
+    .button-container.stopped .stop {
+      display: none;
+    }
+
+    .button-container.started .start {
+      display: none;
+    }
+
+    .status {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>PP Proxy Manager</h1>
+    <div id="container" class="button-container stopped">
+      <button id="start" class="start">⏻</button>
+      <button id="stop" class="stop">⏻</button>
+    </div>
+    <div id="status" class="status">Proxy is not running</div>
+  </div>
+  <script src="./index.js"></script>
+</body>
+
+</html>
